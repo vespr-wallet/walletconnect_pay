@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' hide Action;
+import 'package:material_ui/material_ui.dart' hide Action;
 import 'package:walletconnect_pay/walletconnect_pay.dart';
 
 void main() {

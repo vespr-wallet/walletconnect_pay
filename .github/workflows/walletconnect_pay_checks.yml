@@ -31,12 +31,12 @@ jobs:
         with:
           persist-credentials: false
 
-      # Same version as the repo's .fvmrc
+      # The Flutter the VESPR app builds this package with (.fvmrc is upstream's pin)
       - name: Set up Flutter SDK
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.3
+          flutter-version: 3.50.1
 
       - name: Get dependencies
         run: flutter pub get
