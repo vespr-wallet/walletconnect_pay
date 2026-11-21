@@ -1,0 +1,49 @@
+name: walletconnect_pay checks
+
+# VESPR fork: lint and formatting of the walletconnect_pay package (the one
+# package this fork changes and the VESPR app consumes) fail the PR.
+on:
+  pull_request:
+    paths:
+      - "packages/walletconnect_pay/**"
+      - ".github/workflows/walletconnect_pay_checks.yml"
+  push:
+    branches:
+      - develop
+    paths:
+      - "packages/walletconnect_pay/**"
+      - ".github/workflows/walletconnect_pay_checks.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Format and analyze
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/walletconnect_pay
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      # Same version as the repo's .fvmrc
+      - name: Set up Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.38.3
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Check formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      # flutter analyze fails on infos (lints) too
+      - name: Analyze
+        run: flutter analyze
