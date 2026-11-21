@@ -1,3 +1,7 @@
+## Unreleased
+
+- CI: pull requests run `dart format --set-exit-if-changed` and `flutter analyze` on this package, so formatting and lint issues fail the PR. Removed an unnecessary import in a test, and the example app imports `package:material_ui` instead of the deprecated `package:flutter/material.dart` (Flutter 3.50). `analysis_options.yaml` gets the `build`/`android`/`ios` excludes Flutter 3.50 writes. No library changes
+
 ## 1.1.0+vespr.1
 
 VESPR fork of 1.1.0, consumed as a git dependency (`path: packages/walletconnect_pay`, `ref: 1.1.0+vespr.1`). Upstream PR: SPM support for walletconnect_pay (reown_flutter#396).

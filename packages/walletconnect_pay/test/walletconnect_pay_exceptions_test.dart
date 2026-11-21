@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:walletconnect_pay/models/walletconnect_pay_exceptions.dart';
 import 'package:walletconnect_pay/walletconnect_pay.dart';
 import 'package:walletconnect_pay/walletconnect_pay_platform_interface.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
